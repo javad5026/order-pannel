@@ -230,7 +230,7 @@
     <div id="pagination"></div>  
 
     <div class="footer">
-        <p>تمامی حقوق محفوظ است. <a href="#">شرایط و قوانین</a></p>
+        <p> Creat By SudoWeb </p>
     </div>
 
     <script>
@@ -264,7 +264,7 @@
                                 const createdAt = order.date_created;
 
     
-                                // فرمت تاریخ و ساعت
+                            
                                 const formattedDate = formatDate(createdAt);
     
                                 const cleanShippingAddress = cleanAddress(shipping.address_1, shipping.city, shipping.state, shipping.postcode);
@@ -297,18 +297,18 @@
                             }
                         });
                         function displayOrders(orders) {
-                            const ordersContainer = document.getElementById('orders-list');  // لیست سفارشات را به این تگ اضافه می‌کنیم
+                            const ordersContainer = document.getElementById('orders-list');  
 
                             // اگر سفارشات وجود داشته باشد
                             if (orders && orders.length > 0) {
-                                ordersContainer.innerHTML = '';  // لیست قبلی را پاک می‌کنیم
+                                ordersContainer.innerHTML = ''; 
 
                                 
                                 orders.forEach(order => {
                                     const orderElement = document.createElement('div');
                                     orderElement.classList.add('order');
 
-                                    // نمایش اطلاعات سفارش
+                                 
                                     orderElement.innerHTML = `
                                         <p><strong>وضعیت سفارش:</strong> ${order.status}</p>
                                         <p><strong>کالاهای خریداری‌شده:</strong> ${order.line_items.map(item => item.name).join(', ')}</p>
@@ -329,7 +329,7 @@
 
                         orderList += '</ul>';
                         $('#order-list').html(orderList); // بروزرسانی محتوای سفارشات
-                        displayPagination(page); // بروزرسانی صفحه‌بندی
+                        displayPagination(page); 
                     } else {
                         alert("هیچ سفارشی پیدا نشد.");
                     }
@@ -358,7 +358,7 @@
             return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
         }
     
-        // تابع برای نمایش صفحه‌بندی
+       
         function displayPagination(currentPage) {
             $.ajax({
                 url: apiUrl,
@@ -401,9 +401,9 @@
         }
         function submitOrder(newOrderData) {
             $.ajax({
-            url: 'https://YourWeb-site/wp-json/wc/v3/orders',  // آدرس ثبت سفارش جدید
+            url: 'https://YourWeb-site/wp-json/wc/v3/orders',
             method: 'POST',
-            data: newOrderData,  // داده‌های سفارش جدید
+            data: newOrderData,  
             success: function(response) {
                 console.log('سفارش جدید با موفقیت ثبت شد!');
                 fetchOrders(1);  
